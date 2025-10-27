@@ -2,6 +2,7 @@
 
 This directory contains Jupyter Notebooks for the exercises proposed in Module 1, Week 5 of the DEVinHouse 2025 course.
 
+
 ## Exercise List
 
 1. **data_import_and_exploration.ipynb**
@@ -12,6 +13,9 @@ This directory contains Jupyter Notebooks for the exercises proposed in Module 1
 
 3. **dataframe_operations_and_summary.ipynb**
    - Perform operations to merge and summarize data from multiple DataFrames.
+
+4. **numpy_array_analysis.ipynb**
+   - Use NumPy for calculations and simulations with arrays: import values, calculate mean, sum, standard deviation, apply discount with broadcasting, and check types and dimensions.
 
 ## How to run
 Open the notebooks with Jupyter Notebook or Jupyter Lab and execute the cells sequentially.
