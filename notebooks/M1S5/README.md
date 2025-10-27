@@ -2,7 +2,6 @@
 
 This directory contains Jupyter Notebooks for the exercises proposed in Module 1, Week 5 of the DEVinHouse 2025 course.
 
-
 ## Exercise List
 
 1. **data_import_and_exploration.ipynb**
@@ -16,6 +15,14 @@ This directory contains Jupyter Notebooks for the exercises proposed in Module 1
 
 4. **numpy_array_analysis.ipynb**
    - Use NumPy for calculations and simulations with arrays: import values, calculate mean, sum, standard deviation, apply discount with broadcasting, and check types and dimensions.
+
+5. **Final Report**
+The notebook `final_report.ipynb` consolidates the main analyses of the clients, orders, and products data, including:
+
+- Identification of the top spending client
+- Average ticket by product category
+- Distribution of clients by city
+- Visualizations of the main results
 
 ## How to run
 Open the notebooks with Jupyter Notebook or Jupyter Lab and execute the cells sequentially.
