@@ -35,8 +35,8 @@ def main():
             emails_validos.append(email)
         else:
             emails_invalidos.append(email)
-    gerar_arquivo_emails('data/emails_validos.txt', emails_validos)
-    gerar_arquivo_emails('data/emails_invalidos.txt', emails_invalidos)
+    gerar_arquivo_emails('data/output/txt/emails_validos.txt', emails_validos)
+    gerar_arquivo_emails('data/output/txt/emails_invalidos.txt', emails_invalidos)
 
 if __name__ == "__main__":
     main()

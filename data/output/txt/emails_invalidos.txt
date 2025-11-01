@@ -1,0 +1,5 @@
+email.invalido@
+semarroba.com
+ana@dominio
+teste@teste
+invalido@.com
