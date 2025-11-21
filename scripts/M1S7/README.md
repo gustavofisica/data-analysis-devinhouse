@@ -4,6 +4,8 @@ This directory contains database modeling files (Entity-Relationship diagrams) c
 
 ## Files
 
+- **Bercario.brM3**: Database model for a daycare/nursery system
+- **Ecommerce.brM3**: Database model for an e-commerce platform
 - **Livraria.brM3**: Database model for a bookstore system (Relacionamento/Livraria scenario)
 - **Relacionamentos.brM3**: Database model demonstrating entity relationships
 

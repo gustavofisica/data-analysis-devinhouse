@@ -10,7 +10,12 @@ Generated during notebook execution:
 - **conclusao_viz3_distribuicao_custos_padroes.png**: Cost and pattern distribution
 - **conclusao_viz4_padroes_temporais.png**: Temporal patterns analysis
 - **conclusao_viz5_dimensoes_clinicas.png**: Clinical dimensions analysis
-- **M1S7- Livraria.png**: Database modeling diagram
+
+Database modeling diagrams (Module 1, Week 7):
+- **M1S7- Bercario.png**: Daycare/nursery system ER diagram
+- **M1S7 - Bercario2.png**: Bercario model variant
+- **M1S7 - Ecommerce.png**: E-commerce platform ER diagram
+- **M1S7- Livraria.png**: Bookstore system ER diagram
 
 ## Usage
 
