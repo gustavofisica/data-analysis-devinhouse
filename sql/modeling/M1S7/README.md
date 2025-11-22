@@ -6,12 +6,12 @@ This directory contains database modeling files (Entity-Relationship diagrams) c
 
 - **Bercario.brM3**: Database model for a daycare/nursery system
 - **Ecommerce.brM3**: Database model for an e-commerce platform
-- **Livraria.brM3**: Database model for a bookstore system (Relacionamento/Livraria scenario)
-- **Relacionamentos.brM3**: Database model demonstrating entity relationships
+- **Livraria.brM3**: Database model for a bookstore system
+- **Relacionamentos.brM3**: Database model demonstrating entity relationships (School system)
 
 ## How to use
 
-Open `.brM3` files with a database modeling tool compatible with BrModelo or similar ER diagram software. These files are not executable Python scripts.
+Open `.brM3` files with BrModelo software to view and edit the Entity-Relationship diagrams.
 
 ## Course reference
 

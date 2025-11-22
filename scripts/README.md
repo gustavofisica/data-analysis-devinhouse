@@ -7,8 +7,6 @@ This directory contains Python scripts for exercises and data processing organiz
 - **M1S2/**: Module 1, Week 2 - Basic Python scripts (type conversion, guessing game)
 - **M1S3/**: Module 1, Week 3 - Data structures (lists, dictionaries, sets, tuples)
 - **M1S4/**: Module 1, Week 4 - File I/O, CSV processing, email validation, modularization
-- **M1S7/**: Module 1, Week 7 - Database modeling files (ER diagrams)
-- **M1S8/**: Module 1, Week 8 - Database normalization exercises (1NF, 2NF, 3NF)
 
 ## How to run
 
