@@ -1,7 +1,7 @@
-INSERT INTO clientes (cliente_id, nome, endereco_entrega) VALUES
-(10, 'Diana Souza', 'Rua D, 100'),
-(11, 'Eduardo Pereira', 'Av. E, 200'),
-(12, 'Fernanda Alves', 'Rua F, 300');
+INSERT INTO clientes (cliente_id, nome, email, endereco_entrega) VALUES
+(10, 'Diana Souza', 'diana.souza@email.com', 'Rua D, 100'),
+(11, 'Eduardo Pereira', 'eduardo.pereira@email.com', 'Av. E, 200'),
+(12, 'Fernanda Alves', 'fernanda.alves@email.com', 'Rua F, 300');
 
 INSERT INTO produtos (produto_id, nome, preco) VALUES
 (10, 'Webcam', 250.00),

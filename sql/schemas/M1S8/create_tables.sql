@@ -6,6 +6,7 @@ DROP TABLE IF EXISTS clientes CASCADE;
 CREATE TABLE clientes (
     cliente_id INTEGER PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
     endereco_entrega VARCHAR(255) NOT NULL
 );
 
@@ -51,9 +52,9 @@ CREATE INDEX idx_pedidos_data ON pedidos(data_pedido);
 CREATE INDEX idx_itens_pedido ON itens_pedido(pedido_id);
 CREATE INDEX idx_itens_produto ON itens_pedido(produto_id);
 
-INSERT INTO clientes (cliente_id, nome, endereco_entrega) VALUES
-(1, 'Ana Lima', 'Rua A, 123'),
-(2, 'Bruno Costa', 'Rua B, 456');
+INSERT INTO clientes (cliente_id, nome, email, endereco_entrega) VALUES
+(1, 'Ana Lima', 'ana.lima@email.com', 'Rua A, 123'),
+(2, 'Bruno Costa', 'bruno.costa@email.com', 'Rua B, 456');
 
 INSERT INTO produtos (produto_id, nome, preco) VALUES
 (1, 'Teclado', 120.00),
