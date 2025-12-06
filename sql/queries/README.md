@@ -10,6 +10,7 @@ This directory contains SQL query scripts organized by module and week.
 ## Modules Overview
 
 ### Module 1 - Week 8 (M1S8)
+
 Data Query Language exercises demonstrating:
 - SELECT queries with filters and ordering
 - JOINs across multiple tables
@@ -19,6 +20,7 @@ Data Query Language exercises demonstrating:
 See: `M1S8/README.md`
 
 ### Module 1 - Week 9 (M1S9)
+
 Advanced query techniques including:
 - Complex JOIN operations (INNER JOIN, LEFT JOIN)
 - GROUP BY with multiple aggregations

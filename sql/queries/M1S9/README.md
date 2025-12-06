@@ -1,11 +1,12 @@
 # Module 1 - Week 9 (Advanced SQL Queries)
 
-This directory contains advanced SQL query exercises focusing on table combinations, aggregations, Common Table Expressions (CTEs), string and date functions, and analytics dashboards.
+This directory contains SQL query exercises focusing on table combinations, aggregations, Common Table Expressions (CTEs), string and date functions, and analytics dashboards.
 
 ## Files
 
-### 1. combine_tables.sql
-**Objective**: Demonstrate JOIN operations combining multiple tables
+### combine_tables.sql
+
+JOIN operations combining multiple tables
 
 - Combines `clientes`, `pedidos`, `itens_pedido`, and `produtos` tables
 - Shows customer names with their total order count and total sales value
@@ -14,8 +15,9 @@ This directory contains advanced SQL query exercises focusing on table combinati
 - Groups results by client and orders by total sales (descending)
 - Output: `cliente_nome`, `total_pedidos`, `valor_total_vendas`
 
-### 2. aggregations.sql
-**Objective**: Demonstrate GROUP BY operations with aggregate functions
+### aggregations.sql
+
+GROUP BY operations with aggregate functions
 
 Contains 2 queries:
 
@@ -32,8 +34,9 @@ Contains 2 queries:
    - Useful for identifying inactive customers
    - Output: `cliente_nome`, `quantidade_pedidos`
 
-### 3. cte_vendas_clientes.sql
-**Objective**: Demonstrate Common Table Expressions (CTEs) with HAVING clause
+### cte_vendas_clientes.sql
+
+Common Table Expressions (CTEs) with HAVING clause
 
 - Defines `vendas_por_cliente` CTE
 - Calculates total sales per customer
@@ -42,8 +45,9 @@ Contains 2 queries:
 - Ordered by total sales (descending)
 - Use case: Identify high-value customers for targeted marketing
 
-### 4. extract_concat.sql
-**Objective**: Demonstrate date extraction and string concatenation functions
+### extract_concat.sql
+
+Date extraction and string concatenation functions
 
 Contains 2 queries:
 
@@ -60,8 +64,9 @@ Contains 2 queries:
    - Ordered by order date
    - Output: `cliente_contato`, `data_pedido`
 
-### 5. dashboard_sql.sql
-**Objective**: Create analytics queries for business intelligence dashboard
+### dashboard_sql.sql
+
+Analytics queries for business intelligence
 
 Contains 3 complex queries:
 
@@ -121,19 +126,18 @@ Refer to `/sql/schemas/M1S8/create_tables.sql` for table structure and constrain
 - Week 8 queries: `/sql/queries/M1S8/dql_queries.sql`
 - Modeling diagrams: `/sql/modeling/M1S8/`
 
-## Learning Objectives
+## Key Concepts
 
-After completing these exercises, you should be able to:
+These exercises demonstrate:
 
-✓ Write complex JOIN queries combining multiple tables
-✓ Use GROUP BY with aggregate functions for summarization
-✓ Create and use Common Table Expressions (CTEs)
-✓ Extract and format date information
-✓ Concatenate strings for formatted output
-✓ Design analytics queries for business dashboards
-✓ Understand window functions for comparative analysis
-✓ Apply filtering at different levels (WHERE, HAVING)
-✓ Optimize queries for readability and performance
+- Complex JOIN queries combining multiple tables
+- GROUP BY with aggregate functions for data summarization
+- Common Table Expressions (CTEs) for cleaner query structure
+- Date extraction and formatting with SQL functions
+- String concatenation for data transformation
+- Analytics queries for business reporting
+- Window functions for comparative analysis
+- Multi-level filtering with WHERE and HAVING clauses
 
 ## Execution Notes
 

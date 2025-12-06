@@ -17,7 +17,7 @@ Migrations are organized by version:
 - `002_add_field.sql` - Feature additions
 - `003_refactor.sql` - Schema reorganization
 
-## How to use
+## Implementation
 
 Migrations will be created during future modules to:
 1. Track schema modifications

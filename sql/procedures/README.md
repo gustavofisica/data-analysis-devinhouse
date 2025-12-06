@@ -9,7 +9,7 @@ Stored procedures encapsulate common database operations:
 - **Functions**: Return calculated values for use in queries
 - **Triggers**: Automatically execute actions on table events
 
-## Examples (to be created)
+## Examples
 
 - `sp_insert_order.sql` - Procedure to insert orders with validation
 - `sp_calculate_sales.sql` - Procedure to calculate monthly sales
@@ -24,15 +24,16 @@ Stored procedures encapsulate common database operations:
 - Referential integrity enforcement
 - Performance optimization
 
-## How to use
+## Implementation
 
 Procedures will be created during future modules:
 1. Define stored procedures for common operations
 2. Create functions for calculated fields
 3. Add triggers for automated updates
 
+Example structure:
+
 ```sql
--- Example structure (to be implemented)
 CREATE OR REPLACE FUNCTION get_customer_sales(customer_id INT)
 RETURNS DECIMAL AS $$
   SELECT SUM(price * quantity)

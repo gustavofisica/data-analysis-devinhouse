@@ -11,24 +11,27 @@ This directory contains modularized Python code for the sales analysis project.
 ## Modules
 
 ### main.py
+
 Integrates all modules to perform analysis:
 - Loads data from CSV files
 - Calls calculation and date functions
 - Outputs results
 
 ### calculations.py
+
 Contains mathematical functions:
 - `calculate_total_sales()` - Compute total sales amount
 - `calculate_average_price()` - Average price per product
 - Other business logic
 
 ### dates.py
+
 Contains date and time utilities:
 - `get_current_date()` - Get today's date
 - `format_date()` - Format dates for display
 - Date calculations and comparisons
 
-## How to use
+## Usage
 
 ```bash
 python main.py
@@ -38,14 +41,6 @@ This will:
 1. Import data
 2. Perform calculations
 3. Generate results
-
-## Learning Objectives
-
-✓ Modular code organization
-✓ Function separation by concern
-✓ Code reusability
-✓ Importing between modules
-✓ Main execution entry point
 
 ## Related Files
 

@@ -1,16 +1,16 @@
-# 🗄️ PostgreSQL Setup Guide
+# PostgreSQL Setup Guide
 
-## Status Atual
+## Current Status
 
-✅ **PostgreSQL Instalado**: Versão 16.10 (Ubuntu)  
-✅ **Serviço Ativo**: postgresql.service is running  
-⚠️ **Autenticação**: Requer configuração  
+- PostgreSQL 16.10 installed on Ubuntu
+- Service is active and running
+- Authentication configuration required
 
 ---
 
-## 🔐 Configuração de Autenticação
+## Authentication Configuration
 
-### Opção 1: Usar arquivo .pgpass (Recomendado)
+### Option 1: Using .pgpass file (Recommended)
 
 1. **Criar arquivo `.pgpass`** no diretório home:
 ```bash
@@ -32,7 +32,7 @@ psql -U postgres -h localhost -c "SELECT version();"
 
 ---
 
-### Opção 2: Usar senha diretamente (Menos seguro)
+### Option 2: Using password directly (Less secure)
 
 ```bash
 PGPASSWORD=sua_senha psql -U postgres -h localhost -c "SELECT version();"
@@ -40,7 +40,7 @@ PGPASSWORD=sua_senha psql -U postgres -h localhost -c "SELECT version();"
 
 ---
 
-### Opção 3: Conectar como superuser (sem senha)
+### Option 3: Connecting as superuser (without password)
 
 Se você tiver acesso com sudo:
 ```bash
@@ -49,7 +49,7 @@ sudo -u postgres psql -c "SELECT version();"
 
 ---
 
-## 🗄️ Criar Database para Projeto
+## Creating Databases for the Project
 
 Após configurar autenticação, execute:
 
@@ -74,7 +74,7 @@ CREATE DATABASE "DEVinHouseSchool";
 
 ---
 
-## 📝 Executar Scripts SQL
+## Running SQL Scripts
 
 ### 1. Criar tabelas M1S8
 
@@ -121,7 +121,7 @@ psql -U postgres -h localhost -f "/home/gustavo/Github/Data Analysis - DEVinHous
 
 ---
 
-## 🧪 Teste Interativo
+## Interactive Testing
 
 Para explorar dados interativamente:
 
@@ -146,7 +146,7 @@ SELECT * FROM itens_pedido;
 
 ---
 
-## 🔧 Troubleshooting
+## Troubleshooting
 
 ### Erro: "FATAL: Peer authentication failed"
 
@@ -177,7 +177,7 @@ psql -U postgres -h localhost -c "CREATE DATABASE devinhouse_m1s8;"
 
 ---
 
-## 📊 Verificação Rápida
+## Quick Verification
 
 Script para testar tudo de uma vez:
 
@@ -221,7 +221,7 @@ echo "✅ Setup completo!"
 
 ---
 
-## 🎯 Próximos Passos
+## Next Steps
 
 1. Configure o `.pgpass` com sua senha
 2. Crie os databases usando os comandos acima
@@ -231,7 +231,7 @@ echo "✅ Setup completo!"
 
 ---
 
-## 📞 Referência Rápida
+## Quick Reference
 
 | Comando | Descrição |
 |---------|-----------|
@@ -244,7 +244,7 @@ echo "✅ Setup completo!"
 
 ---
 
-## ✅ Checklist de Configuração
+## Setup Checklist
 
 - [ ] PostgreSQL 16 instalado
 - [ ] Serviço postgresql ativo
@@ -259,6 +259,5 @@ echo "✅ Setup completo!"
 
 ---
 
-**Status**: 🔴 Aguardando configuração de autenticação  
-**Data**: 22/11/2024  
-**Próxima Ação**: Configurar `.pgpass` e testar conexão
+Status: Authentication configuration required  
+Next Action: Configure `.pgpass` and test connection
