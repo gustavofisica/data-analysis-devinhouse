@@ -1,0 +1,21 @@
+# Core data analysis libraries
+pandas>=1.5.0
+numpy>=1.21.0
+
+# Visualization libraries
+matplotlib>=3.5.0
+seaborn>=0.11.0
+
+# Statistical analysis
+scipy>=1.7.0
+
+# Utilities
+faker>=15.0.0
+requests>=2.25.0
+
+# Jupyter environment
+jupyter>=1.0.0
+jupyterlab>=3.0.0
+
+# Database connectivity (optional)
+psycopg2-binary>=2.9.0  # For PostgreSQL connection
