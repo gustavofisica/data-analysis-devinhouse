@@ -6,8 +6,15 @@ This directory contains CSV source data files used in exercises and notebooks.
 
 - **clientes.csv**, **pedidos.csv**, **produtos.csv**: Business sample data (customers, orders, products) - Module 1, Week 5
 - **vendas.csv**: Sales data - Module 1, Week 4
-- **healthcare_dataset.csv**: Public healthcare dataset from Kaggle (10,000 patient records)
+- **healthcare_dataset.csv**: Public healthcare dataset from Kaggle (10,000 patient records) - Module 1, Week 6
+- **chipotle_modificado.csv**: Chipotle restaurant orders dataset - Module 2, Week 2
+- **sales_data_sample.csv**: Sales transactions dataset with customer and product data for statistical analysis - Module 2, Week 2
 - **AirPassengers.csv**, **census.csv**, **games.csv**: Sample datasets from Udemy Pandas course
+
+## Usage by Module
+
+**Module 1 (M1S4-M1S6)**: Business analysis with clientes/pedidos/produtos, healthcare insights
+**Module 2 (M2S2)**: Data cleaning (Chipotle) and statistical analysis (Sales sample)
 
 ## Usage
 

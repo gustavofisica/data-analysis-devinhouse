@@ -87,7 +87,7 @@ pip install jupyter
 - **Week 9** ([M1S9](sql/queries/M1S9/)) - Advanced queries
 
 ### Module 2: Advanced Analysis
-- **Week 2** ([M2S2](notebooks/M2S2/)) - Data cleaning with Chipotle dataset
+- **Week 2** ([M2S2](notebooks/M2S2/)) - Advanced data cleaning and statistical analysis with real datasets
 
 ## Common Issues & Solutions
 

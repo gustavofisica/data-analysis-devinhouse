@@ -13,7 +13,7 @@ pip install pandas numpy matplotlib seaborn scipy faker requests jupyter
 
 - **M1S5/**: Module 1, Week 5 - Data import, exploration, and Pandas/NumPy operations
 - **M1S6/**: Module 1, Week 6 - Clamed Data Insights project with machine learning
-- **M2S2/**: Module 2, Week 2 - Chipotle dataset data cleaning exercises
+- **M2S2/**: Module 2, Week 2 - Advanced data cleaning and statistical analysis (Chipotle dataset + Sales data quality control)
 - **study_notes/**: Supporting notebooks with study examples and practice exercises
 
 ## How to run
@@ -40,6 +40,7 @@ Notebooks rely on datasets in the `data/input/` directory:
 - `clientes.csv`, `pedidos.csv`, `produtos.csv` - Business analysis data
 - `healthcare_dataset.csv` - Medical insights analysis
 - `chipotle_modificado.csv` - Restaurant chain data cleaning
+- `sales_data_sample.csv` - Sales transactions for statistical analysis and outlier detection
 
 ## Course reference
 
