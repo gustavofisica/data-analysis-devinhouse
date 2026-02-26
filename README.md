@@ -88,6 +88,7 @@ pip install jupyter
 
 ### Module 2: Advanced Analysis
 - **Week 2** ([M2S2](notebooks/M2S2/)) - Advanced data cleaning and statistical analysis with real datasets
+- **Week 5** ([M2S5](scripts/M2S5/)) - Data pipeline and ETL with local Data Warehouse
 
 ## Common Issues & Solutions
 

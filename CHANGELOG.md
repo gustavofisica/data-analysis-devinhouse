@@ -8,6 +8,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- **M2S5**: Data pipeline project with 4 exercises
+  - `store_data_pipeline.py`: CSV data generator with update and insert operations
+  - `data_warehouse.py`: Local Data Warehouse setup using SQLite (dim_produtos, dim_clientes)
+  - `staging.py`: Staging area loader using Pandas (stg_produtos, stg_clientes)
+  - `scd_clientes.py`: SCD Type 2 implementation for customer address history
 - Comprehensive README improvements with badges and quick start guide
 - `requirements.txt` file with all Python dependencies
 - `CONTRIBUTING.md` with contribution guidelines
