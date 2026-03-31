@@ -1,66 +1,90 @@
-# M2S08 - Dashboard de Vendas (Streamlit)
+# Module 2 - Week 8 Exercises
 
-Dashboard interativo desenvolvido com Streamlit para os exercícios da semana 8 do Módulo 2 do DEVinHouse 2025.
+This directory contains the interactive sales dashboard developed for Module 2, Week 8 of the DEVinHouse 2025 course.
 
-## Exercícios Implementados
+## Project Overview
 
-| Exercício | Componente | Localização no dashboard |
+The goal is to build an interactive dashboard in Streamlit that replicates the four exercises required in Looker Studio:
+
+- **Exercise 1**: Scorecard displaying total sales (`valor_total`) formatted as BRL currency
+- **Exercise 2**: Bar chart showing monthly sales evolution over time
+- **Exercise 3**: Interactive filter controls (sidebar) and a fixed data source filter
+- **Exercise 4**: Calculated date field (`mes_venda`) for correct chronological grouping
+
+The dashboard serves as a local reference implementation and delivery evidence stored in the repository. The official exercise submission requires a Looker Studio report (see `reports/M2S08/`).
+
+## Data Source
+
+File: `data/input/csv/base_vendas_luis_gustavo_de_matos_dos_santos.csv`
+
+| Field | Type | Description |
 |---|---|---|
-| Ex. 1 | Scorecard com total de vendas em R$ | Painel superior (4 métricas) |
-| Ex. 2 | Gráfico de barras — evolução mensal | Coluna principal central |
-| Ex. 3 | Filtros de controle (sidebar) + filtro na base | Sidebar esquerda |
-| Ex. 4 | Campo calculado `mes_venda` para agrupamento correto | Dimensão do gráfico de barras |
+| `id_venda` | Integer | Unique sale identifier |
+| `data_venda` | Date (YYYY-MM-DD) | Sale date |
+| `cliente` | Text | Customer identifier |
+| `estado` | Text | Brazilian state (MG, PR, RJ, RS, SC, SP) |
+| `cidade` | Text | City name |
+| `produto` | Text | Product name (5 types) |
+| `categoria` | Text | Product category (Acessorios, Eletronicos) |
+| `quantidade` | Integer | Units sold |
+| `valor_unitario` | Decimal | Unit price in BRL |
+| `valor_total` | Decimal | Total sale value in BRL |
+| `responsavel` | Text | Salesperson name |
 
-## Fonte de Dados
+Key metrics from the dataset:
 
-```
-data/input/csv/base_vendas_luis_gustavo_de_matos_dos_santos.csv
-```
+- Total records: 10,000
+- Total sales: R$ 138,049,889.64
+- Average ticket: R$ 13,804.99
+- Unique customers: 300
 
-- 10.000 registros de vendas
-- Período: 2025 (março a dezembro)
-- Campos principais: `valor_total`, `data_venda`, `categoria`, `estado`, `produto`
+## Exercise Implementation Details
 
-## Como Executar
+### Exercise 1 - Scorecard
 
-### Pré-requisitos
+Displays `SUM(valor_total)` formatted as BRL currency using `st.metric()`.
 
-```bash
-# Ativar o ambiente virtual do projeto
-source .venv/bin/activate
+### Exercise 2 - Bar Chart
 
-# Instalar dependências (caso ainda não instaladas)
-pip install streamlit plotly
-```
+Groups sales by `mes_venda` (calculated field) and plots monthly totals using `plotly.express.bar()`.
 
-### Rodar o Dashboard
+### Exercise 3 - Filters
 
-```bash
-# A partir da raiz do projeto
-streamlit run scripts/M2S08/dashboard.py
-```
+Two filter types implemented:
 
-O dashboard abrirá automaticamente em `http://localhost:8501`.
+- **Control filter** (sidebar): multiselect widgets for `categoria`, `estado`, `produto`, and a date range picker for `data_venda`
+- **Data source filter**: `valor_total > 0` applied at load time before any aggregation
 
-## Observações Técnicas
-
-### Ex. 3 — Dois tipos de filtro
-
-- **Filtro de controle** (sidebar): multiselect de `categoria`, `estado`, `produto` e seletor de período — manipulados pelo usuário em tempo real
-- **Filtro na base de dados**: aplicado na carga (`valor_total > 0`), equivalente a um filtro permanente na fonte de dados do Looker Studio
-
-### Ex. 4 — Campo calculado de data
+### Exercise 4 - Calculated Date Field
 
 ```python
 df["mes_venda"] = df["data_venda"].dt.to_period("M").astype(str)
-# Resultado: "2025-03", "2025-04", ..., "2025-12"
+# Result: "2025-03", "2025-04", ..., "2025-12"
 ```
 
-Garante ordenação cronológica correta no eixo X do gráfico, equivalente ao campo calculado `FORMAT_DATETIME("%Y-%m", data_venda)` do Looker Studio.
+Equivalent to the Looker Studio formula:
 
-## Entrega no Looker Studio
+```
+FORMAT_DATETIME("%Y-%m", data_venda)
+```
 
-Link do dashboard (Looker Studio): _a ser preenchido após configuração_
+## Requirements
 
-> O dashboard Streamlit serve como referência visual e evidência técnica no repositório.
-> A entrega oficial do exercício é feita via Looker Studio conforme orientação do curso.
+- `pandas>=1.5.0`
+- `plotly>=5.0.0`
+- `streamlit>=1.28.0`
+
+## How to Run
+
+Activate the project virtual environment and run from the repository root:
+
+```bash
+source .venv/bin/activate
+streamlit run scripts/M2S08/dashboard.py
+```
+
+The dashboard opens automatically at `http://localhost:8501`.
+
+## Course Reference
+
+[DEVinHouse 2025](https://cadastro.lab365.tech/devinhouse-2025)
