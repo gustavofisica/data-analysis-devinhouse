@@ -14,6 +14,9 @@ pip install pandas numpy matplotlib seaborn scipy faker requests jupyter
 - **M1S5/**: Module 1, Week 5 - Data import, exploration, and Pandas/NumPy operations
 - **M1S6/**: Module 1, Week 6 - Clamed Data Insights project with machine learning
 - **M2S2/**: Module 2, Week 2 - Advanced data cleaning and statistical analysis (Chipotle dataset + Sales data quality control)
+- **M3S01/**: Module 3, Week 1 - Introduction to Machine Learning: simple linear regression applied to pharmaceutical demand forecasting
+- **M3S02/**: Module 3, Week 2 - ML preprocessing: separating predictor variables (X) and target variable (y)
+- **M3S03/**: Module 3, Week 3 - Model comparison: DecisionTreeRegressor applied to pharmaceutical demand forecasting
 - **study_notes/**: Supporting notebooks with study examples and practice exercises
 
 ## How to run
