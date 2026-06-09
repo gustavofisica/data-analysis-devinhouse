@@ -27,3 +27,9 @@ psycopg2-binary>=2.9.0  # For PostgreSQL connection
 # RPA / GUI automation
 pyautogui>=0.9.54
 pyperclip>=1.8.0
+
+# AI / LLM
+anthropic>=0.50.0
+
+# Environment
+python-dotenv>=1.0.0

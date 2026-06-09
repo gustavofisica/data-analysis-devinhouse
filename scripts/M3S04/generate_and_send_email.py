@@ -1,143 +1,122 @@
 """
 [M3S04] - Ex. 5 - Gerando e Preenchendo o E-mail Final
 
-Fluxo completo de automação:
-  1. Lê o conteúdo da Gupy já copiado pelo Ex. 4 (ou copia novamente)
-  2. Abre o ChatGPT, cola o conteúdo + prompt de análise e aguarda resposta
-  3. Copia a resposta do ChatGPT
-  4. Abre o Gmail, compõe e envia o e-mail com a análise
+Fluxo:
+  1. Lê o conteúdo da Gupy do clipboard (saída do Ex. 4)
+  2. Envia para a Claude API e obtém análise das vagas
+  3. Exibe o e-mail gerado para confirmação
+  4. Envia via SMTP do Gmail (App Password)
+
+Pré-requisitos:
+  - Arquivo .env com ANTHROPIC_API_KEY, GMAIL_USER,
+    GMAIL_APP_PASSWORD e EMAIL_DESTINATARIO
+  - Ex. 4 executado (conteúdo da Gupy no clipboard)
+  - App Password do Gmail gerada em:
+    https://myaccount.google.com/apppasswords
 
 Uso:
-    1. Execute o Ex. 4 (copy_page_content.py) para copiar o conteúdo da Gupy.
-    2. Use o Ex. 2 (mouse_coordinates.py) para capturar as coordenadas abaixo.
-    3. Garanta que está logado no ChatGPT e no Gmail no navegador.
-    4. Rode: python generate_and_send_email.py
-
-Para encerrar em caso de emergência: mova o mouse para qualquer canto da tela.
+    python generate_and_send_email.py
 """
 
-import pyautogui
+import smtplib
+import textwrap
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+
+import anthropic
 import pyperclip
-import time
+from dotenv import load_dotenv
+import os
 
-# ── Configurações de segurança ──────────────────────────────────────────────
-pyautogui.FAILSAFE = True
-pyautogui.PAUSE = 0.1
+# ── Carregar variáveis de ambiente ──────────────────────────────────────────
+load_dotenv()
 
-# ── Configurações — ajustar conforme necessário ──────────────────────────────
-EMAIL_DESTINATARIO = "lucas.ribeiro.lima@edu.sc.senai.br"
-EMAIL_ASSUNTO      = "[M3S04] Ex. 5 - Análise de Vagas Remotas - Gupy"
+ANTHROPIC_API_KEY  = os.getenv("ANTHROPIC_API_KEY")
+GMAIL_USER         = os.getenv("GMAIL_USER")
+GMAIL_APP_PASSWORD = os.getenv("GMAIL_APP_PASSWORD")
+EMAIL_DESTINATARIO = os.getenv("EMAIL_DESTINATARIO")
 
-PROMPT_ANALISE = (
-    "Com base nas vagas abaixo extraídas da plataforma Gupy, "
-    "faça um resumo das principais oportunidades remotas disponíveis, "
-    "destacando: cargo, empresa, requisitos principais e diferenciais. "
-    "Apresente em formato de lista organizada.\n\n"
-    "Vagas:\n"
-)
+for var, nome in [
+    (ANTHROPIC_API_KEY,  "ANTHROPIC_API_KEY"),
+    (GMAIL_USER,         "GMAIL_USER"),
+    (GMAIL_APP_PASSWORD, "GMAIL_APP_PASSWORD"),
+    (EMAIL_DESTINATARIO, "EMAIL_DESTINATARIO"),
+]:
+    if not var:
+        raise EnvironmentError(f"Variável {nome} não encontrada. Configure o arquivo .env")
 
-# ── Coordenadas — ajustar com o mouse_coordinates.py (Ex. 2) ────────────────
-CAMPO_CHATGPT_X    = 760    # campo de texto do ChatGPT
-CAMPO_CHATGPT_Y    = 900
-BOTAO_COMPOSE_X    = 120    # botão "Escrever" do Gmail
-BOTAO_COMPOSE_Y    = 200
-CAMPO_PARA_X       = 700    # campo destinatário do Gmail
-CAMPO_PARA_Y       = 320
-CAMPO_ASSUNTO_X    = 700    # campo assunto do Gmail
-CAMPO_ASSUNTO_Y    = 360
-CORPO_EMAIL_X      = 700    # corpo do e-mail do Gmail
-CORPO_EMAIL_Y      = 450
+EMAIL_ASSUNTO = "[M3S04] Ex. 5 - Análise de Vagas Remotas - Gupy"
 
+PROMPT_ANALISE = textwrap.dedent("""\
+    Com base nas vagas abaixo extraídas da plataforma Gupy, faça um resumo \
+    das principais oportunidades remotas disponíveis, destacando: cargo, \
+    empresa, requisitos principais e diferenciais. \
+    Apresente em formato de lista organizada.
 
-def abrir_nova_aba(url: str, tempo_espera: int = 5) -> None:
-    """Abre uma nova aba e navega para a URL informada."""
-    pyautogui.hotkey("ctrl", "t")
-    time.sleep(1)
-    pyautogui.hotkey("ctrl", "l")   # foca a barra de endereços
-    time.sleep(0.3)
-    pyperclip.copy(url)
-    pyautogui.hotkey("ctrl", "v")
-    pyautogui.press("enter")
-    time.sleep(tempo_espera)
-
+    Vagas:
+    """)
 
 # ════════════════════════════════════════════════════════════
-# FASE 1 — Recuperar conteúdo da Gupy do clipboard
+# FASE 1 — Ler conteúdo da Gupy do clipboard
 # ════════════════════════════════════════════════════════════
 conteudo_gupy = pyperclip.paste()
-if not conteudo_gupy:
-    print("Clipboard vazio. Execute o Ex. 4 (copy_page_content.py) primeiro.")
-    exit(1)
+if not conteudo_gupy.strip():
+    raise RuntimeError("Clipboard vazio. Execute o Ex. 4 (copy_page_content.py) primeiro.")
 
-print(f"Conteúdo da Gupy disponível no clipboard ({len(conteudo_gupy)} caracteres).")
-print("Iniciando automação em 3 segundos... (mova o mouse a um canto para cancelar)")
-time.sleep(3)
+print(f"Conteúdo da Gupy lido do clipboard ({len(conteudo_gupy)} caracteres).")
 
 # ════════════════════════════════════════════════════════════
-# FASE 2 — ChatGPT: colar conteúdo + prompt e copiar resposta
+# FASE 2 — Análise via Claude API
 # ════════════════════════════════════════════════════════════
-print("\n[1/3] Abrindo ChatGPT...")
-abrir_nova_aba("https://chatgpt.com", tempo_espera=5)
+print("\n[1/2] Enviando para a Claude API...")
 
-print("Clicando no campo de texto do ChatGPT...")
-pyautogui.click(CAMPO_CHATGPT_X, CAMPO_CHATGPT_Y, clicks=3, interval=0.1)
-time.sleep(0.5)
+client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
 
-print("Colando prompt + conteúdo das vagas...")
-mensagem_completa = PROMPT_ANALISE + conteudo_gupy[:8000]  # limite seguro de tokens
-pyperclip.copy(mensagem_completa)
-pyautogui.hotkey("ctrl", "v")
-time.sleep(1)
+mensagem = client.messages.create(
+    model="claude-opus-4-5",
+    max_tokens=1024,
+    messages=[
+        {
+            "role": "user",
+            "content": PROMPT_ANALISE + conteudo_gupy[:8000],
+        }
+    ],
+)
 
-print("Enviando para o ChatGPT...")
-pyautogui.press("enter")
-
-print("Aguardando resposta do ChatGPT (30s)...")
-time.sleep(30)
-
-print("Copiando resposta do ChatGPT...")
-pyautogui.hotkey("ctrl", "a")
-time.sleep(0.3)
-pyautogui.hotkey("ctrl", "c")
-time.sleep(0.5)
-
-resposta_chatgpt = pyperclip.paste()
-print(f"Resposta copiada ({len(resposta_chatgpt)} caracteres).")
+analise = mensagem.content[0].text
+print(f"Análise gerada ({len(analise)} caracteres).")
 
 # ════════════════════════════════════════════════════════════
-# FASE 3 — Gmail: compor e enviar e-mail
+# FASE 3 — Confirmação antes do envio
 # ════════════════════════════════════════════════════════════
-print("\n[2/3] Abrindo Gmail...")
-abrir_nova_aba("https://mail.google.com", tempo_espera=5)
+print("\n" + "=" * 60)
+print(f"DESTINATÁRIO : {EMAIL_DESTINATARIO}")
+print(f"ASSUNTO      : {EMAIL_ASSUNTO}")
+print("CORPO:")
+print("-" * 60)
+print(analise)
+print("=" * 60)
 
-print("Clicando no botão Escrever (Compose)...")
-pyautogui.click(BOTAO_COMPOSE_X, BOTAO_COMPOSE_Y)
-time.sleep(1.5)
+resposta = input("\nEnviar o e-mail acima? (s/n): ").strip().lower()
+if resposta != "s":
+    print("Envio cancelado.")
+    exit(0)
 
-print("Preenchendo destinatário...")
-pyautogui.click(CAMPO_PARA_X, CAMPO_PARA_Y)
-time.sleep(0.3)
-pyperclip.copy(EMAIL_DESTINATARIO)
-pyautogui.hotkey("ctrl", "v")
-pyautogui.press("tab")
-time.sleep(0.3)
+# ════════════════════════════════════════════════════════════
+# FASE 4 — Envio via SMTP
+# ════════════════════════════════════════════════════════════
+print("\n[2/2] Enviando e-mail via Gmail SMTP...")
 
-print("Preenchendo assunto...")
-pyautogui.click(CAMPO_ASSUNTO_X, CAMPO_ASSUNTO_Y)
-time.sleep(0.3)
-pyperclip.copy(EMAIL_ASSUNTO)
-pyautogui.hotkey("ctrl", "v")
-time.sleep(0.3)
+msg = MIMEMultipart("alternative")
+msg["Subject"] = EMAIL_ASSUNTO
+msg["From"]    = GMAIL_USER
+msg["To"]      = EMAIL_DESTINATARIO
+msg.attach(MIMEText(analise, "plain", "utf-8"))
 
-print("Colando análise no corpo do e-mail...")
-pyautogui.click(CORPO_EMAIL_X, CORPO_EMAIL_Y)
-time.sleep(0.3)
-pyperclip.copy(resposta_chatgpt)
-pyautogui.hotkey("ctrl", "v")
-time.sleep(0.5)
+with smtplib.SMTP("smtp.gmail.com", 587) as smtp:
+    smtp.ehlo()
+    smtp.starttls()
+    smtp.login(GMAIL_USER, GMAIL_APP_PASSWORD)
+    smtp.sendmail(GMAIL_USER, EMAIL_DESTINATARIO, msg.as_string())
 
-print("Enviando e-mail...")
-pyautogui.hotkey("ctrl", "enter")
-time.sleep(1)
-
-print("\n[3/3] E-mail enviado com sucesso!")
+print("E-mail enviado com sucesso!")
