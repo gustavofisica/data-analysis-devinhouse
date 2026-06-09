@@ -102,6 +102,7 @@ pip install jupyter
 - **Week 2** ([M3S02](notebooks/M3S02/)) - ML preprocessing: features and target variable split
 - **Week 3** ([M3S03](notebooks/M3S03/)) - DecisionTreeRegressor and cross-validation
 - **Week 4** ([M3S04](scripts/M3S04/)) - RPA with PyAutoGUI: mouse tracking, keyboard automation, Gupy scraping, Gemini analysis, automated e-mail
+- **Week 7** ([M3S07](notebooks/M3S07/)) - Mini-project: predictive analysis of medical insurance costs (EDA, feature engineering, 5 models, cross-validation, GridSearchCV)
 
 ## Common Issues & Solutions
 

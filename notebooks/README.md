@@ -18,6 +18,7 @@ pip install pandas numpy matplotlib seaborn scipy faker requests jupyter
 - **M3S02/**: Module 3, Week 2 - ML preprocessing: separating predictor variables (X) and target variable (y)
 - **M3S03/**: Module 3, Week 3 - Model comparison: DecisionTreeRegressor applied to pharmaceutical demand forecasting
 - **M3S04/** *(scripts only — no notebooks)*: RPA exercises live in `scripts/M3S04/`
+- **M3S07/**: Module 3, Week 7 - Mini-project: predictive analysis of medical insurance costs (full EDA + 5 models + CV + GridSearchCV)
 - **study_notes/**: Supporting notebooks with study examples and practice exercises
 
 ## How to run
@@ -45,6 +46,7 @@ Notebooks rely on datasets in the `data/input/` directory:
 - `healthcare_dataset.csv` - Medical insights analysis
 - `chipotle_modificado.csv` - Restaurant chain data cleaning
 - `sales_data_sample.csv` - Sales transactions for statistical analysis and outlier detection
+- `insurance.csv` - Medical insurance costs (Kaggle) for the M3S07 mini-project
 
 ## Course reference
 
