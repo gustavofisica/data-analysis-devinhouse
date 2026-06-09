@@ -2,7 +2,7 @@
 [M3S04] - Ex. 4 - Copiar Informações de uma Página Utilizando PyAutoGUI
 
 Abre o navegador, acessa a página de vagas da Gupy e copia todo o
-conteúdo para o clipboard, para uso posterior no ChatGPT (Ex. 5).
+conteúdo para o clipboard, para uso posterior no Ex. 5 (Gemini + e-mail).
 
 Uso:
     1. Use o Ex. 2 (mouse_coordinates.py) para capturar a coordenada
