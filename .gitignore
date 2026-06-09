@@ -40,7 +40,7 @@ venv.bak/
 .DS_Store
 
 # RPA runtime outputs
-scripts/M3S04/email_gerado.txt
+data/output/txt/email_gerado.txt
 .vscode/
 *.log
 

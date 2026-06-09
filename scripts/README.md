@@ -9,6 +9,8 @@ This directory contains Python scripts for exercises and data processing organiz
 - **M1S4/**: Module 1, Week 4 - File I/O, CSV processing, email validation, modularization
 - **M2S5/**: Module 2, Week 5 - Data pipeline and ETL with local Data Warehouse (SQLite)
 - **M2S08/**: Module 2, Week 8 - Interactive sales dashboard with Streamlit (Looker Studio exercises)
+- **M2S09/**: Module 2, Week 9 - Interactive sales dashboard with Streamlit
+- **M3S04/**: Module 3, Week 4 - RPA with PyAutoGUI: mouse coordinates, keyboard automation, page scraping, Gemini analysis and automated e-mail
 
 ## How to run
 

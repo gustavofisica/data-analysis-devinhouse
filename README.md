@@ -20,7 +20,12 @@ DEVinHouse 2025: [Course Link](https://cadastro.lab365.tech/devinhouse-2025)
 ### Required Python Libraries
 
 ```bash
-pip install pandas numpy matplotlib seaborn scipy faker requests
+pip install -r requirements.txt
+```
+
+Or manually:
+```bash
+pip install pandas numpy matplotlib seaborn scipy faker requests pyautogui pyperclip google-genai python-dotenv
 ```
 
 For Jupyter support:
@@ -89,6 +94,14 @@ pip install jupyter
 ### Module 2: Advanced Analysis
 - **Week 2** ([M2S2](notebooks/M2S2/)) - Advanced data cleaning and statistical analysis with real datasets
 - **Week 5** ([M2S5](scripts/M2S5/)) - Data pipeline and ETL with local Data Warehouse
+- **Week 8** ([M2S08](scripts/M2S08/)) - Interactive sales dashboard with Streamlit
+- **Week 9** ([M2S09](scripts/M2S09/)) - Interactive sales dashboard with Streamlit
+
+### Module 3: Machine Learning & RPA
+- **Week 1** ([M3S01](notebooks/M3S01/)) - Linear regression: pharmaceutical demand forecasting
+- **Week 2** ([M3S02](notebooks/M3S02/)) - ML preprocessing: features and target variable split
+- **Week 3** ([M3S03](notebooks/M3S03/)) - DecisionTreeRegressor and cross-validation
+- **Week 4** ([M3S04](scripts/M3S04/)) - RPA with PyAutoGUI: mouse tracking, keyboard automation, Gupy scraping, Gemini analysis, automated e-mail
 
 ## Common Issues & Solutions
 

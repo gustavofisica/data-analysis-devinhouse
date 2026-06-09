@@ -19,6 +19,9 @@ Uso:
 import textwrap
 from pathlib import Path
 
+ROOT = Path(__file__).resolve().parents[2]
+OUTPUT_TXT = ROOT / "data" / "output" / "txt"
+
 from google import genai
 import pyperclip
 from dotenv import load_dotenv
@@ -83,7 +86,8 @@ print("-" * 60)
 print(analise)
 print("=" * 60)
 
-saida = Path(__file__).parent / "email_gerado.txt"
+saida = OUTPUT_TXT / "email_gerado.txt"
+OUTPUT_TXT.mkdir(parents=True, exist_ok=True)
 saida.write_text(
     f"DESTINATÁRIO: {EMAIL_DESTINATARIO}\n"
     f"ASSUNTO: {EMAIL_ASSUNTO}\n"

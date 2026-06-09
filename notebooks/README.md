@@ -17,6 +17,7 @@ pip install pandas numpy matplotlib seaborn scipy faker requests jupyter
 - **M3S01/**: Module 3, Week 1 - Introduction to Machine Learning: simple linear regression applied to pharmaceutical demand forecasting
 - **M3S02/**: Module 3, Week 2 - ML preprocessing: separating predictor variables (X) and target variable (y)
 - **M3S03/**: Module 3, Week 3 - Model comparison: DecisionTreeRegressor applied to pharmaceutical demand forecasting
+- **M3S04/** *(scripts only — no notebooks)*: RPA exercises live in `scripts/M3S04/`
 - **study_notes/**: Supporting notebooks with study examples and practice exercises
 
 ## How to run

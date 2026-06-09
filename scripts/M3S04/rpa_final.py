@@ -32,6 +32,9 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from pathlib import Path
 
+ROOT = Path(__file__).resolve().parents[2]
+OUTPUT_TXT = ROOT / "data" / "output" / "txt"
+
 import pyautogui
 import pyperclip
 from dotenv import load_dotenv
@@ -113,6 +116,7 @@ print("=" * 60)
 print(f"DESTINATÁRIO : {EMAIL_DESTINATARIO}")
 print(f"ASSUNTO      : {EMAIL_ASSUNTO}")
 print(f"ANEXO        : {Path(__file__).name}")
+print(f"SAÍDA        : {OUTPUT_TXT / 'email_gerado.txt'}")
 print("CORPO:")
 print("-" * 60)
 print(analise)
