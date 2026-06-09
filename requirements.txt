@@ -23,3 +23,7 @@ jupyterlab>=3.0.0
 
 # Database connectivity (optional)
 psycopg2-binary>=2.9.0  # For PostgreSQL connection
+
+# RPA / GUI automation
+pyautogui>=0.9.54
+pyperclip>=1.8.0
