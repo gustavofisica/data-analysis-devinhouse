@@ -11,6 +11,7 @@ This directory contains Python scripts for exercises and data processing organiz
 - **M2S08/**: Module 2, Week 8 - Interactive sales dashboard with Streamlit (Looker Studio exercises)
 - **M2S09/**: Module 2, Week 9 - Interactive sales dashboard with Streamlit
 - **M3S04/**: Module 3, Week 4 - RPA with PyAutoGUI: mouse coordinates, keyboard automation, page scraping, Gemini analysis and automated e-mail
+- **M3S05/**: Module 3, Week 5 - RPA with Selenium: CMED spreadsheet, web scraping, file renaming, complete RPA flow
 
 ## How to run
 
