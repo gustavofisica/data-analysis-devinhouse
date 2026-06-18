@@ -16,17 +16,17 @@ Fonte: [Kaggle — Medical Cost Personal Datasets](https://www.kaggle.com/datase
 ## Estrutura do notebook
 
 1. Importação de bibliotecas e carregamento dos dados
-2. Visão geral da estrutura do dataset
-3. Estatísticas descritivas
-4. Verificação e remoção de duplicatas
-5. Renomeação de colunas e padronização de categorias
-6. Detecção de outliers e caracterização do perfil clínico
-7. Análise univariada por categoria
-8. Visualizações demográficas
-9. Análise bivariada: interação `Fumante × IMC`
+2. Exploração inicial e qualidade dos dados (nulos, duplicatas, tipos)
+3. Tradução e padronização (renomeação de colunas e categorias)
+4. Análise estatística descritiva (tendência central, dispersão, forma)
+5. Tratamento de outliers — decisão metodológica (caracterização do perfil clínico)
+6. Análise demográfica (sexo, faixa etária, região)
+7. Análise de custos por variáveis categóricas (univariada)
+8. Correlações entre variáveis numéricas (Pearson)
+9. Visualizações comparativas e cruzamentos: interação `Fumante × IMC`
 10. Regressão Linear Múltipla (baseline)
 11. Comparação com Árvore de Decisão + simulação de 5 perfis típicos
-12. Modelagem avançada: feature engineering (`Fumante_Obeso`), Árvore visualizada, k-fold CV, ensembles (RF, GB), GridSearchCV e simulação dos perfis com todos os modelos
+12. Extensões: feature engineering (`Fumante_Obeso`), Árvore visualizada, k-fold CV, ensembles (RF, GB), GridSearchCV e simulação dos perfis com todos os modelos
 13. Conclusão e interpretação dos resultados
 
 ## Resultado principal

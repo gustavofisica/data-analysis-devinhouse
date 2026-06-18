@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- **M3S07**: Mini-project — predictive analysis of medical insurance costs
+  - `medical_cost_prediction.ipynb`: full EDA, outlier characterization, feature engineering (`Fumante_Obeso`), and comparison of 5 regression models (Linear, Linear + interaction, Decision Tree, Random Forest, Gradient Boosting) with k-fold cross-validation and GridSearchCV
+  - Best model: Multiple Linear Regression + `Fumante_Obeso` (R² = 0.9057, MAE = USD 2,392)
 - **M2S5**: Data pipeline project with 4 exercises
   - `store_data_pipeline.py`: CSV data generator with update and insert operations
   - `data_warehouse.py`: Local Data Warehouse setup using SQLite (dim_produtos, dim_clientes)
